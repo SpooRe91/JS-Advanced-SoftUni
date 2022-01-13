@@ -6,13 +6,16 @@ function solve() {
       let bestRestaurantOutput = document.querySelector('#bestRestaurant p');
       let bestWorkersOutput = document.querySelector('#workers p');
 
+      bestRestaurantOutput.innerHTML = '';
+      bestWorkersOutput.innerHTML = ''
+
       let restInfo = {};
       let restaurant = '';
       let avg = 0;
       let currentName = '';
 
       for (let i = 0; i < input.length; i++) {
-         restaurant = input[i].split("-")[0];
+         restaurant = input[i].split("-")[0].trim();
          let workersInfo = input[i].split(' - ')[1].split(", ");
 
          if (!restInfo[restaurant]) {
@@ -33,7 +36,7 @@ function solve() {
             currentAvg += el;
          }
 
-         currentAvg = (currentAvg / arr2.length).toFixed(2)
+         currentAvg = (currentAvg / arr2.length)
 
          if (avg < currentAvg) {
             avg = currentAvg
@@ -41,7 +44,7 @@ function solve() {
          }
       }
 
-      let bestSalary = Math.max(...(Object.values(restInfo[currentName]))).toFixed(2)
+      let bestSalary = Math.max(...(Object.values(restInfo[currentName])));
 
       Object.entries(restInfo[currentName])
          .sort((a, b) => {
@@ -51,6 +54,6 @@ function solve() {
             bestWorkersOutput.innerHTML += `Name: ${el[0]} With Salary: ${el[1]} `
          })
 
-      bestRestaurantOutput.innerHTML = `Name: ${currentName} Average Salary: ${avg} Best Salary: ${bestSalary}`;
+      bestRestaurantOutput.innerHTML = `Name: ${currentName} Average Salary: ${avg.toFixed(2)} Best Salary: ${bestSalary.toFixed(2)}`;
    }
 }
