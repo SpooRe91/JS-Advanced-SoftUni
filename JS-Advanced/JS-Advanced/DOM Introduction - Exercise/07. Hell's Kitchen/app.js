@@ -6,8 +6,8 @@ function solve() {
       let bestRestaurantOutput = document.querySelector('#bestRestaurant p');
       let bestWorkersOutput = document.querySelector('#workers p');
 
-      bestRestaurantOutput.innerHTML = '';
-      bestWorkersOutput.innerHTML = ''
+      bestRestaurantOutput.textContent = '';
+      bestWorkersOutput.textContent = '';
 
       let restInfo = {};
       let restaurant = '';
@@ -51,9 +51,9 @@ function solve() {
             return b[1] - a[1];
          })
          .forEach((el) => {
-            bestWorkersOutput.innerHTML += `Name: ${el[0]} With Salary: ${el[1]} `
+            bestWorkersOutput.textContent += `Name: ${el[0]} With Salary: ${el[1]} `
          })
 
-      bestRestaurantOutput.innerHTML = `Name: ${currentName} Average Salary: ${avg.toFixed(2)} Best Salary: ${bestSalary.toFixed(2)}`;
+      bestRestaurantOutput.textContent = `Name: ${currentName} Average Salary: ${avg.toFixed(2)} Best Salary: ${bestSalary.toFixed(2)}`;
    }
 }
