@@ -19,13 +19,14 @@
   function deleteByEmail() {
 
     let input = document.querySelector("label input").value;
-    let rows = Array.from(document.querySelectorAll('tbody tr'));
+    let rows = document.querySelectorAll('tbody tr');
     
 
     for (let row of rows) {
         let email = row.querySelectorAll('td')[1].textContent;
         if(email==input){
-            row.parentNode.removeChild(row);
+            //row.parentNode.removeChild(row);
+            row.remove();
             document.getElementById('result').textContent = "Deleted."
             return;
         }else{
