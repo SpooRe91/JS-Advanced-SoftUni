@@ -15,7 +15,7 @@ function solution() {
   submitBtn.addEventListener("click", submit)
 
   function submit() {
-    if (name.value != ""  && email.value != "" ) {
+    if (name.value != "" && email.value != "") {
       let liName = document.createElement("li")
       liName.textContent = `Full Name: ${name.value}`
       let liEmail = document.createElement("li")
@@ -81,8 +81,11 @@ function solution() {
     let main = document.getElementById("block")
     let h3 = document.createElement("h3");
     h3.textContent = "Thank you for your reservation!"
-    Array.from(main.children).forEach(e => e.remove())
-    main.appendChild(h3)
+
+    main.replaceChildren(h3);
+
+    // Array.from(main.children).forEach(e => e.remove())
+    // main.appendChild(h3)
   }
 
 }
